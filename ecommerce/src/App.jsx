@@ -1,18 +1,20 @@
 import { useState } from 'react'
 import './App.css'
-import TopBar from './Components/TopBar'
-import Navbar from './Components/Navbar'
-import Section1 from './Components/Section1'
-import Footer from './Components/Footer'
+import Home from './Layouts/Home'
+import Products from './Layouts/Products'
+import {BrowserRouter,Routes,Route} from 'react-router-dom'
 
 function App() {
 
   return (
     <>
-      <TopBar />
-      <Navbar />
-      <Section1 />
-      <Footer />
+      <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />}/>
+        <Route path="/products" element={<Products />}/>
+      </Routes>
+      </BrowserRouter>
+
     </>
   )
 }
