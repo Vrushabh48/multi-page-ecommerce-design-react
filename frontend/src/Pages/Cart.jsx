@@ -1,5 +1,7 @@
 import React from 'react';
 import { useCart } from '../Context/Cartcontext';
+import Topbar from '../Components/Topbar';
+import Navbar from '../Components/Navbar';
 
 function Cart() {
   const { cart, dispatch } = useCart();
@@ -8,6 +10,8 @@ function Cart() {
 
   return (
     <div>
+      <Topbar />
+      <Navbar />
       <h1>Cart</h1>
       {cart.length === 0 ? (
         <p>Your cart is empty</p>

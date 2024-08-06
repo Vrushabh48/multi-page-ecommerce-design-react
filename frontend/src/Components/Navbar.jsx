@@ -1,4 +1,4 @@
-
+import { Link } from "react-router-dom"
 
 export default function Navbar(){
     return(
@@ -8,12 +8,23 @@ export default function Navbar(){
                 Logo
             </div>
             <div className="navbar-center hidden lg:flex p-2">
-                <ul className="menu menu-horizontal flex gap-5">
-                    <li className="rounded p-2 bg-[#F3F7EC] text-black hover:bg-slate-400"><a href="">Home</a></li>
-                    <li className="rounded p-2 bg-[#F3F7EC] text-black hover:bg-slate-400"><a href="">About</a></li>
-                    <li className="rounded p-2 bg-[#F3F7EC] text-black hover:bg-slate-400"><a href="">Products</a></li>
-                    <li className="rounded p-2 bg-[#F3F7EC] text-black hover:bg-slate-400"><a href="">Cart</a></li>
-                </ul>
+                
+                <nav>
+      <ul className="menu menu-horizontal flex gap-5">
+        <li className="rounded p-2 bg-[#F3F7EC] text-black hover:bg-slate-400">
+          <Link to="/">Home</Link>
+        </li>
+        <li className="rounded p-2 bg-[#F3F7EC] text-black hover:bg-slate-400">
+          <Link to="/about">About</Link>
+        </li>
+        <li className="rounded p-2 bg-[#F3F7EC] text-black hover:bg-slate-400">
+          <Link to="/products">Products</Link>
+        </li>
+        <li className="rounded p-2 bg-[#F3F7EC] text-black hover:bg-slate-400">
+          <Link to="/cart">Cart</Link>
+        </li>
+      </ul>
+    </nav>
             </div>
             <div>
 

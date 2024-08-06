@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { memo } from 'react';
+import Topbar from '../Components/Topbar';
+import Navbar from '../Components/Navbar';
 
 const products = [
   { src: 'https://via.placeholder.com/150', productName: 'Product 1', productPrice: 29.99 },
@@ -25,27 +27,34 @@ const products = [
 ];
 
 function Products() {
-  const [cartvalue, setcartvalue] = useState(0);
+  const [cartValue, setCartValue] = useState(0);
+  const [cart, setCart] = useState([]);
 
-  function addtocart(price) {
-    setcartvalue((prevCartValue) => prevCartValue + price);
+  function addToCart(product) {
+    setCart((prevCart) => [...prevCart, product.productName]);
+    setCartValue((prevCartValue) => prevCartValue + product.productPrice);
   }
 
   return (
     <div>
+      <Topbar />
+      <Navbar />
       <div className="grid grid-cols-4 gap-4">
         {products.map((product, index) => (
           <div key={index} className="border p-4">
             <img src={product.src} alt={product.productName} className="w-full h-auto mb-4" />
             <h2 className="text-lg font-bold">{product.productName}</h2>
             <p className="text-gray-700">${product.productPrice.toFixed(2)}</p>
-            <button onClick={() => addtocart(product.productPrice)}>Add to Cart</button>
+            <button onClick={() => addToCart(product)}>Add to Cart</button>
           </div>
         ))}
       </div>
       <div className="mt-4">
-        <h1>Cart :</h1>
-        <h3>Total Cart value : {cartvalue.toFixed(2)}</h3>
+        <h1>Cart:</h1>
+        {cart.map((item, index) => (
+          <h2 key={index}>{item}</h2>
+        ))}
+        <h3>Total Cart Value: ${cartValue.toFixed(2)}</h3>
       </div>
     </div>
   );

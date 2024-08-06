@@ -9,7 +9,6 @@ export default function Home() {
       <Topbar />
       <Navbar />
       <Content />
-      <Featured />
     </div>
   );
 }
