@@ -39,22 +39,25 @@ function Products() {
     <div>
       <Topbar />
       <Navbar />
-      <div className="grid grid-cols-4 gap-4">
+      <div className="grid grid-cols-4 gap-5 p-7">
         {products.map((product, index) => (
           <div key={index} className="border p-4">
             <img src={product.src} alt={product.productName} className="w-full h-auto mb-4" />
             <h2 className="text-lg font-bold">{product.productName}</h2>
             <p className="text-gray-700">${product.productPrice.toFixed(2)}</p>
-            <button onClick={() => addToCart(product)}>Add to Cart</button>
+            <button className='bg-gray-700 hover:bg-gray-500 text-white p-3 rounded-lg' onClick={() => addToCart(product)}>Add to Cart</button>
           </div>
         ))}
       </div>
-      <div className="mt-4">
-        <h1>Cart:</h1>
+      <div className="p-14 border">
+      <div className="mt-4 gap-5">
+        <h1 className='p-2 text-3xl font-semibold'>Cart:</h1>
         {cart.map((item, index) => (
-          <h2 key={index}>{item}</h2>
+          <h2 className='text-2xl font-medium p-2' key={index}>{item}</h2>
         ))}
-        <h3>Total Cart Value: ${cartValue.toFixed(2)}</h3>
+        <h3 className='p-5 text-2xl font-medium'>Total Cart Value: ${cartValue.toFixed(2)}</h3>
+      </div>
+      <button className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Checkout</button>
       </div>
     </div>
   );
